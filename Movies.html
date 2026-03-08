@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Background Grid</title>
+    <link rel="stylesheet" href=" movies style.css">
+</head>
+<body>
+    <div class="video-container">
+        <video src="C:\Users\oo\Desktop\website\Fifty Shades Of Grey - Official Trailer (Universal Pictures) HD.mp4" controls muted  class="bg-video" poster="C:\Users\oo\Desktop\website\1_DzlmgLXZmrw7gmXFNyCa5g.jpg"></video>
+        <video src="C:\Users\oo\Desktop\website\Den of Thieves 2_ Pantera (2025) New Trailer – Gerard Butler, O’Shea Jackson Jr..mp4" controls muted  class="bg-video" poster="C:\Users\oo\Desktop\website\zz4.jpg"></video>
+        <video src="C:\Users\oo\Desktop\website\Deadpool & Wolverine _ Official Trailer _ In Theaters July 26.mp4" controls muted loop class="bg-video" poster="C:\Users\oo\Desktop\website\zz3.jpg"></video>
+        <video src="C:\Users\oo\Desktop\website\FAST X _ Official Trailer.mp4" controls muted  class="bg-video" poster="C:\Users\oo\Desktop\website\zz7.jpg"></video>
+        <video src="C:\Users\oo\Desktop\website\Carry-On _ Official Trailer _ Netflix.mp4" controls muted  class="bg-video" poster="C:\Users\oo\Desktop\website\zz6.jpg"></video>
+        <video src="C:\Users\oo\Desktop\website\RED NOTICE _ Official Trailer _ Netflix.mp4" controls muted  class="bg-video" poster="C:\Users\oo\Desktop\website\zz1.jpg"></video>
+    </div>
+    <script>
+       document.addEventListener("DOMContentLoaded", function () {
+            let videos = document.querySelectorAll(".bg-video");
+
+            videos.forEach(video => {
+                let poster = video.getAttribute("poster"); // Store the poster URL
+
+                video.addEventListener("mouseenter", () => {
+                    video.play(); // Play video on hover
+                });
+
+                video.addEventListener("mouseleave", () => {
+                    video.pause(); // Pause the video
+                    video.currentTime = 0; // Reset to the start of the video
+
+                    // Force poster to show by temporarily removing and restoring the src
+                    let videoSrc = video.getAttribute("src");
+                    video.setAttribute("src", ""); // Remove the source
+                    video.setAttribute("src", videoSrc); // Restore the original source
+                });
+            });
+        });
+
+    </script>
+
+</body>
+</html>
